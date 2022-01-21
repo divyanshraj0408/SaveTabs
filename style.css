@@ -23,6 +23,7 @@ button {
     background-color: #5f9341;
     margin-top: 10px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #delete-btn {
