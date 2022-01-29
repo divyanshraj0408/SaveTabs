@@ -44,4 +44,11 @@ li {
 a,b {
     text-decoration: none;
     color: #5f9341;
+    pointer-events: all;
+}
+.fa-trash{
+    font-size:10px;
+    cursor: pointer;
+    color:red;
+    float: right
 }
