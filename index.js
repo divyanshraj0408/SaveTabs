@@ -18,24 +18,38 @@ tabBtn.addEventListener("click", function() {
         localStorage.setItem("myleads", JSON.stringify(myleads))
         render(myleads)
     })
-
 })
 
-function render(leads) {
-    let listItems = ulEl.innerHTML
-    listItems = ""
-    for (let i = 0; i < leads.length; i++) {
-        listItems += `
-        <li>
-            <b>${i+1}-</b>
-            <a target= '_blank' href= '${leads[i]}' >
-            ${leads[i]}
-            </a>
-            <hr/>
-        </li>
-        `
+function deleteLink(index,leads){
+        const updatedLead = leads.splice(index,1)
+        localStorage.removeItem("myleads")
+        localStorage.setItem("myleads", JSON.stringify(updatedLead))
+        render(leads)
     }
-    ulEl.innerHTML = listItems
+
+function render(leads) {
+    while (ulEl.firstChild) {
+        ulEl.removeChild(ulEl.lastChild);
+      }
+    leads.forEach((lead,index)=>{
+        const li = document.createElement('li')
+        const b = document.createElement('b')
+        const a = document.createElement('a')
+        const i = document.createElement('i')
+        const hr = document.createElement('hr')
+        a.textContent=lead
+        i.addEventListener('click',()=>deleteLink(index,leads))
+        i.className = "fa fa-trash"
+        a.target= "_blank"
+        a.href= lead
+        b.textContent = `${index + 1}- `
+        li.appendChild(b)
+        li.appendChild(a)
+        li.appendChild(i)
+        li.appendChild(hr)
+        ulEl.appendChild(li)
+        
+    })
 }
 
 deleteBtn.addEventListener("dblclick", function() {
