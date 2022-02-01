@@ -15,6 +15,7 @@ tabBtn.addEventListener("click", function() {
     //chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {});
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         myleads.push(tabs[0].url)
+     
         localStorage.setItem("myleads", JSON.stringify(myleads))
         render(myleads)
     })
@@ -23,7 +24,7 @@ tabBtn.addEventListener("click", function() {
 function deleteLink(index,leads){
         const updatedLead = leads.splice(index,1)
         localStorage.removeItem("myleads")
-        localStorage.setItem("myleads", JSON.stringify(updatedLead))
+        localStorage.setItem("myleads", JSON.stringify(leads))
         render(leads)
     }
 
