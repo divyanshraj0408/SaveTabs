@@ -23,6 +23,7 @@ button {
     background-color: #5f9341;
     margin-top: 10px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #delete-btn {
@@ -38,9 +39,22 @@ ul {
 
 li {
     margin-top: 5px;
+    display:inline-block !important;
+    width:100%;
 }
-
-a {
+a,b {
     text-decoration: none;
     color: #5f9341;
+    pointer-events: all;
+}
+
+.fa-trash{
+    display: none !important;
+    font-size:10px;
+    cursor: pointer;
+    color:red;
+    float: right
+}
+li:hover .fa-trash{
+    display:block  !important;
 }

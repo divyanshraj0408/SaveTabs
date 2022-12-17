@@ -14,27 +14,43 @@ if (leadsFromLocalStorage) {
 tabBtn.addEventListener("click", function() {
     //chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {});
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-        console.log(tabs)
         myleads.push(tabs[0].url)
+     
         localStorage.setItem("myleads", JSON.stringify(myleads))
         render(myleads)
     })
-
 })
 
-function render(leads) {
-    let listItems = ulEl.innerHTML
-    listItems = ""
-    for (let i = 0; i < leads.length; i++) {
-        listItems += `
-        <li>
-            <a target= '_blank' href= '${leads[i]}' >
-            ${leads[i]}
-            </a>
-        </li>
-        `
+function deleteLink(index,leads){
+        const updatedLead = leads.splice(index,1)
+        localStorage.removeItem("myleads")
+        localStorage.setItem("myleads", JSON.stringify(leads))
+        render(leads)
     }
-    ulEl.innerHTML = listItems
+
+function render(leads) {
+    while (ulEl.firstChild) {
+        ulEl.removeChild(ulEl.lastChild);
+      }
+    leads.forEach((lead,index)=>{
+        const li = document.createElement('li')
+        const b = document.createElement('b')
+        const a = document.createElement('a')
+        const i = document.createElement('i')
+        const hr = document.createElement('hr')
+        a.textContent=lead
+        i.addEventListener('click',()=>deleteLink(index,leads))
+        i.className = "fa fa-trash"
+        a.target= "_blank"
+        a.href= lead
+        b.textContent = `${index + 1}- `
+        li.appendChild(b)
+        li.appendChild(a)
+        li.appendChild(i)
+        li.appendChild(hr)
+        ulEl.appendChild(li)
+        
+    })
 }
 
 deleteBtn.addEventListener("dblclick", function() {
@@ -44,6 +60,9 @@ deleteBtn.addEventListener("dblclick", function() {
 })
 
 inputBtn.addEventListener("click", function() {
+    if(!inputEl.value){
+        return
+    }
     myleads.push(inputEl.value)
     inputEl.value = ""
     localStorage.setItem("myleads", JSON.stringify(myleads))
