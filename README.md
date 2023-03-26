@@ -29,7 +29,7 @@ You are free to use SaveTabs.🥳
 
 👤 **Divyansh Raj**
 
-* Website: http://linkfree.eddiehub.org/divyanshraj0408
+* Website: [divyanshraj.com](https://divyanshraj.onrender.com/)
 * Twitter: [@divyanshraj04](https://twitter.com/divyanshraj04)
 * Github: [@divyanshraj0408](https://github.com/divyanshraj0408)
 * LinkedIn: [@divyansh-raj](https://linkedin.com/in/divyansh-raj)
