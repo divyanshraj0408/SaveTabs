@@ -41,6 +41,13 @@ button {
     color: #5f9341;
     background-color: white;
 }
+#input-btn:hover,#tab-btn:hover{
+    background-color: rgb(84, 84, 189);
+}
+#delete-btn:hover{
+    background-color: #BA0001;
+    color: white;
+}
 
 ul {
     margin-top: 20px;
@@ -54,10 +61,7 @@ li {
     width:100%;
 }
 a:hover{
-    color: blue;  
-}
-b:hover{
-    color: blue;  
+    color: rgb(84, 84, 189)  
 }
 li:hover{ 
     font-weight: bolder;
