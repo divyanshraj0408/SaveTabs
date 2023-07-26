@@ -41,7 +41,3 @@ Contributions, issues and feature requests are welcome!<br/>Feel free to check [
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-
-***
-
-*_I made this project from help of this amazing Javascript tutorial by ([FreeCodeCamp](https://www.youtube.com/watch?v=jS4aFq5-91M))*
