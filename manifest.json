@@ -1,11 +1,31 @@
 {
-    "manifest_version": 3,
-    "version": "1.0",
-    "name": "Save Tabs",
-    "action": {
-        "default_popup": "index.html",
-        "default_icon": "saveTabs.png"
-    },
-    "permissions": ["tabs"]
-
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Save Tabs",
+  "description": "Organize your tabs and links with folders and drag-and-drop functionality",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "saveTabs.png",
+      "32": "saveTabs.png",
+      "48": "saveTabs.png",
+      "128": "saveTabs.png"
+    }
+  },
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "icons": {
+    "16": "saveTabs.png",
+    "32": "saveTabs.png",
+    "48": "saveTabs.png",
+    "128": "saveTabs.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;"
+  }
 }
